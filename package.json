@@ -34,7 +34,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-nitro-pip-example",
+    "example": "bun --cwd example run",
     "clean": "del-cli lib",
     "prepare": "bob build",
     "nitrogen": "nitrogen",
@@ -97,7 +97,7 @@
   "workspaces": [
     "example"
   ],
-  "packageManager": "yarn@4.11.0",
+  "packageManager": "bun@1.1.38",
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
