@@ -1,0 +1,17 @@
+{
+  "cxxNamespace": ["nitropip"],
+  "ios": {
+    "iosModuleName": "NitroPip"
+  },
+  "android": {
+    "androidNamespace": ["nitropip"],
+    "androidCxxLibName": "nitropip"
+  },
+  "autolinking": {
+    "NitroPip": {
+      "swift": "NitroPip",
+      "kotlin": "NitroPip"
+    }
+  },
+  "ignorePaths": ["node_modules"]
+}
