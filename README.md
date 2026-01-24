@@ -13,7 +13,12 @@ npm install react-native-nitro-pip react-native-nitro-modules
 ## Usage
 
 ```tsx
-import { enterPiP, isPiPSupported, isInPiP } from 'react-native-nitro-pip';
+import {
+  addPiPModeChangedListener,
+  enterPiP,
+  isInPiP,
+  isPiPSupported,
+} from 'react-native-nitro-pip';
 
 // Check if PiP is supported on the current device
 if (isPiPSupported()) {
@@ -25,6 +30,14 @@ if (isPiPSupported()) {
 
 // Check if the app is currently in PiP mode
 const inPiP = isInPiP();
+
+// Subscribe to PiP mode changes (Android only)
+const unsubscribe = addPiPModeChangedListener((isInPiP) => {
+  console.log('PiP active:', isInPiP);
+});
+
+// Later, when cleaning up
+unsubscribe();
 ```
 
 ## Android Requirements
