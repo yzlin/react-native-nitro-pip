@@ -1,6 +1,8 @@
 import { NitroModules } from 'react-native-nitro-modules';
 
-import type { NitroPip } from './NitroPip.nitro';
+import type { NitroPip, PiPModeChangedListener } from './NitroPip.nitro';
+
+export type { PiPModeChangedListener } from './NitroPip.nitro';
 
 const NitroPipHybridObject =
   NitroModules.createHybridObject<NitroPip>('NitroPip');
@@ -17,4 +19,13 @@ export function isPiPSupported(): boolean {
 
 export function isInPiP(): boolean {
   return NitroPipHybridObject.isInPiP();
+}
+
+export function addPiPModeChangedListener(
+  listener: PiPModeChangedListener
+): () => void {
+  const id = NitroPipHybridObject.addPiPModeChangedListener(listener);
+  return () => {
+    NitroPipHybridObject.removePiPModeChangedListener(id);
+  };
 }
