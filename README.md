@@ -61,7 +61,7 @@ If you are using Expo, add the plugin to your `app.json` or `app.config.js`:
 ```json
 {
   "expo": {
-    "plugins": ["../app.plugin.js"]
+    "plugins": ["react-native-nitro-pip"]
   }
 }
 ```
