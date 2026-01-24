@@ -1,5 +1,5 @@
 class NitroPip: HybridNitroPipSpec {
-    public func enterPiP(options: NitroPipEnterPiPOptions?) -> Bool {
+    public func enterPiP(options: EnterPiPOptions?) -> Bool {
         return false
     }
 
