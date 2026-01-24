@@ -6,9 +6,9 @@ Add picture-in-picture support to React Native for Android app
 
 ```sh
 npm install react-native-nitro-pip react-native-nitro-modules
+```
 
 > `react-native-nitro-modules` is required as this library relies on [Nitro Modules](https://nitro.margelo.com/).
-```
 
 ## Usage
 
@@ -48,7 +48,7 @@ If you are using Expo, add the plugin to your `app.json` or `app.config.js`:
 ```json
 {
   "expo": {
-    "plugins": [["../app.plugin.js"]]
+    "plugins": ["../app.plugin.js"]
   }
 }
 ```
