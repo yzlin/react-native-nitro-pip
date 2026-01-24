@@ -87,3 +87,7 @@ nitrogen/
 
 # OMO
 .sisyphus/
+
+# env
+.env.*
+.envrc
