@@ -5,17 +5,17 @@ export interface AspectRatio {
   height: number;
 }
 
-export interface EnterPiPOptions {
+export interface EnterPipOptions {
   aspectRatio?: AspectRatio;
 }
 
-export type PiPModeChangedListener = (isInPiP: boolean) => void;
+export type PipModeChangedListener = (isInPip: boolean) => void;
 
 export interface NitroPip
   extends HybridObject<{ ios: 'swift'; android: 'kotlin' }> {
-  enterPiP(options?: EnterPiPOptions): boolean;
-  isPiPSupported(): boolean;
-  isInPiP(): boolean;
-  addPiPModeChangedListener(listener: PiPModeChangedListener): number;
-  removePiPModeChangedListener(id: number): void;
+  enterPip(options?: EnterPipOptions): boolean;
+  isPipSupported(): boolean;
+  isInPip(): boolean;
+  addPipModeChangedListener(listener: PipModeChangedListener): number;
+  removePipModeChangedListener(id: number): void;
 }

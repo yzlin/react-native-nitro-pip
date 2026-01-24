@@ -1,12 +1,12 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.withPiP = void 0;
+exports.withPip = void 0;
 const config_plugins_1 = require('@expo/config-plugins');
 /**
  * Expo config plugin to enable Picture-in-Picture support for Android.
  * Modifies the AndroidManifest.xml to add required attributes to the main activity.
  */
-const withPiP = (config) => {
+const withPip = (config) => {
   return (0, config_plugins_1.withAndroidManifest)(config, (cfg) => {
     const mainActivity =
       config_plugins_1.AndroidConfig.Manifest.getMainActivity(cfg.modResults);
@@ -39,4 +39,4 @@ const withPiP = (config) => {
     return cfg;
   });
 };
-exports.withPiP = withPiP;
+exports.withPip = withPip;

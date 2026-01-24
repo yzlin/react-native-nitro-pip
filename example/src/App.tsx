@@ -1,27 +1,27 @@
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { addPiPModeChangedListener, enterPiP } from 'react-native-nitro-pip';
+import { addPipModeChangedListener, enterPip } from 'react-native-nitro-pip';
 
 export default function App() {
   const [status, setStatus] = useState<string>('Ready');
 
   useEffect(() => {
-    const unsubscribe = addPiPModeChangedListener((isInPiP) => {
-      setStatus(isInPiP ? 'PiP mode active' : 'PiP mode exited');
+    const unsubscribe = addPipModeChangedListener((isInPip) => {
+      setStatus(isInPip ? 'PiP mode active' : 'PiP mode exited');
     });
 
     return unsubscribe;
   }, []);
 
-  const handleEnterPiP = () => {
-    const result = enterPiP();
+  const handleEnterPip = () => {
+    const result = enterPip();
     setStatus(result ? 'Entered PiP mode' : 'Failed to enter PiP');
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PiP Module Demo</Text>
-      <Button title="Enter PiP Mode" onPress={handleEnterPiP} />
+      <Button title="Enter PiP Mode" onPress={handleEnterPip} />
       <Text style={styles.status}>{status}</Text>
     </View>
   );

@@ -1,3 +1,1 @@
-import { withPiP } from './withPiP';
-
-export default withPiP;
+export { withPip as default } from './withPip';

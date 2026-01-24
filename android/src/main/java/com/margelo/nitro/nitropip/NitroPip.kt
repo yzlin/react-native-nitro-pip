@@ -20,7 +20,7 @@ class NitroPip : HybridNitroPipSpec() {
   private var pipModeChangedListener: Consumer<PictureInPictureModeChangedInfo>? = null
   private var pipModeChangedActivity: ComponentActivity? = null
 
-  override fun isPiPSupported(): Boolean {
+  override fun isPipSupported(): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
       return false
     }
@@ -31,7 +31,7 @@ class NitroPip : HybridNitroPipSpec() {
     return activity.packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)
   }
 
-  override fun isInPiP(): Boolean {
+  override fun isInPip(): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
       return false
     }
@@ -42,7 +42,7 @@ class NitroPip : HybridNitroPipSpec() {
     return activity.isInPictureInPictureMode
   }
 
-  override fun enterPiP(options: EnterPiPOptions?): Boolean {
+  override fun enterPip(options: EnterPipOptions?): Boolean {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
       return false
     }
@@ -54,7 +54,7 @@ class NitroPip : HybridNitroPipSpec() {
       return false
     }
 
-    ensurePiPModeChangedListenerRegistered()
+    ensurePipModeChangedListenerRegistered()
 
     val paramsBuilder = PictureInPictureParams.Builder()
 
@@ -75,21 +75,21 @@ class NitroPip : HybridNitroPipSpec() {
     return activity.enterPictureInPictureMode(paramsBuilder.build())
   }
 
-  override fun addPiPModeChangedListener(listener: (Boolean) -> Unit): Double {
+  override fun addPipModeChangedListener(listener: (Boolean) -> Unit): Double {
     val id = pipModeListenerId.getAndIncrement()
     pipModeListeners[id] = listener
-    ensurePiPModeChangedListenerRegistered()
+    ensurePipModeChangedListenerRegistered()
     return id.toDouble()
   }
 
-  override fun removePiPModeChangedListener(id: Double) {
+  override fun removePipModeChangedListener(id: Double) {
     pipModeListeners.remove(id.toInt())
     if (pipModeListeners.isEmpty()) {
-      unregisterPiPModeChangedListener()
+      unregisterPipModeChangedListener()
     }
   }
 
-  private fun ensurePiPModeChangedListenerRegistered() {
+  private fun ensurePipModeChangedListenerRegistered() {
     if (pipModeChangedListener != null) {
       return
     }
@@ -107,7 +107,7 @@ class NitroPip : HybridNitroPipSpec() {
 
     val listener =
       Consumer<PictureInPictureModeChangedInfo> { info ->
-        notifyPiPModeChanged(info.isInPictureInPictureMode)
+        notifyPipModeChanged(info.isInPictureInPictureMode)
       }
 
     activity.addOnPictureInPictureModeChangedListener(listener)
@@ -115,7 +115,7 @@ class NitroPip : HybridNitroPipSpec() {
     pipModeChangedActivity = activity
   }
 
-  private fun unregisterPiPModeChangedListener() {
+  private fun unregisterPipModeChangedListener() {
     val activity = pipModeChangedActivity ?: return
     val listener = pipModeChangedListener ?: return
 
@@ -124,9 +124,9 @@ class NitroPip : HybridNitroPipSpec() {
     pipModeChangedActivity = null
   }
 
-  private fun notifyPiPModeChanged(isInPiP: Boolean) {
+  private fun notifyPipModeChanged(isInPip: Boolean) {
     for (listener in pipModeListeners.values) {
-      listener(isInPiP)
+      listener(isInPip)
     }
   }
 }

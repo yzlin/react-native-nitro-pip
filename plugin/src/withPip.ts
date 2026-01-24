@@ -8,7 +8,7 @@ import {
  * Expo config plugin to enable Picture-in-Picture support for Android.
  * Modifies the AndroidManifest.xml to add required attributes to the main activity.
  */
-export const withPiP: ConfigPlugin = (config) => {
+export const withPip: ConfigPlugin = (config) => {
   return withAndroidManifest(config, (cfg) => {
     const mainActivity = AndroidConfig.Manifest.getMainActivity(cfg.modResults);
 

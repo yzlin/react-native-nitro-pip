@@ -14,26 +14,26 @@ npm install react-native-nitro-pip react-native-nitro-modules
 
 ```tsx
 import {
-  addPiPModeChangedListener,
-  enterPiP,
-  isInPiP,
-  isPiPSupported,
+  addPipModeChangedListener,
+  enterPip,
+  isInPip,
+  isPipSupported,
 } from 'react-native-nitro-pip';
 
 // Check if PiP is supported on the current device
-if (isPiPSupported()) {
+if (isPipSupported()) {
   // Enter PiP mode
-  const success = enterPiP({
+  const success = enterPip({
     aspectRatio: { width: 16, height: 9 },
   });
 }
 
 // Check if the app is currently in PiP mode
-const inPiP = isInPiP();
+const inPip = isInPip();
 
 // Subscribe to PiP mode changes (Android only)
-const unsubscribe = addPiPModeChangedListener((isInPiP) => {
-  console.log('PiP active:', isInPiP);
+const unsubscribe = addPipModeChangedListener((isInPip) => {
+  console.log('PiP active:', isInPip);
 });
 
 // Later, when cleaning up
@@ -52,7 +52,7 @@ To use Picture-in-Picture on Android, you must update your `AndroidManifest.xml`
   ... />
 ```
 
-> **Note:** `enterPiP` must be called while the activity is in the foreground.
+> **Note:** `enterPip` must be called while the activity is in the foreground.
 
 ## Expo Usage
 

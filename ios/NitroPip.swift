@@ -2,26 +2,26 @@ class NitroPip: HybridNitroPipSpec {
     private var pipModeListenerId: Double = 0
     private var pipModeListeners: [Double: (Bool) -> Void] = [:]
 
-    public func enterPiP(options: EnterPiPOptions?) -> Bool {
+    public func enterPip(options: EnterPipOptions?) -> Bool {
         return false
     }
 
-    public func isPiPSupported() -> Bool {
+    public func isPipSupported() -> Bool {
         return false
     }
 
-    public func isInPiP() -> Bool {
+    public func isInPip() -> Bool {
         return false
     }
 
-    public func addPiPModeChangedListener(listener: @escaping (Bool) -> Void) -> Double {
+    public func addPipModeChangedListener(listener: @escaping (Bool) -> Void) -> Double {
         let id = pipModeListenerId
         pipModeListenerId += 1
         pipModeListeners[id] = listener
         return id
     }
 
-    public func removePiPModeChangedListener(id: Double) {
+    public func removePipModeChangedListener(id: Double) {
         pipModeListeners.removeValue(forKey: id)
     }
 }

@@ -139,6 +139,9 @@
   },
   "jest": {
     "preset": "react-native",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?|\\.bun/.+?/node_modules/(jest-)?react-native|\\.bun/.+?/node_modules/@react-native(-community)?)/)"
+    ],
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
