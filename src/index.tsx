@@ -1,9 +1,20 @@
 import { NitroModules } from 'react-native-nitro-modules';
+
 import type { NitroPip } from './NitroPip.nitro';
 
 const NitroPipHybridObject =
   NitroModules.createHybridObject<NitroPip>('NitroPip');
 
-export function multiply(a: number, b: number): number {
-  return NitroPipHybridObject.multiply(a, b);
+export function enterPiP(options?: {
+  aspectRatio?: { width: number; height: number };
+}): boolean {
+  return NitroPipHybridObject.enterPiP(options);
+}
+
+export function isPiPSupported(): boolean {
+  return NitroPipHybridObject.isPiPSupported();
+}
+
+export function isInPiP(): boolean {
+  return NitroPipHybridObject.isInPiP();
 }

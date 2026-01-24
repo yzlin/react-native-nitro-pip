@@ -1,5 +1,13 @@
 class NitroPip: HybridNitroPipSpec {
-    public func multiply(a: Double, b: Double) throws -> Double {
-        return a * b
+    public func enterPiP(options: NitroPipEnterPiPOptions?) -> Bool {
+        return false
+    }
+
+    public func isPiPSupported() -> Bool {
+        return false
+    }
+
+    public func isInPiP() -> Bool {
+        return false
     }
 }
