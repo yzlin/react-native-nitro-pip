@@ -119,6 +119,8 @@ Our pre-commit hooks verify that your commit message matches this format when co
 
 We use [release-it](https://github.com/release-it/release-it) to make it easier to publish new versions. It handles common tasks like bumping version based on semver, creating tags and releases etc.
 
+For CI/CD publishing, run the GitHub Actions workflow named **Publish**. It runs `release-it` in CI and publishes to npm. Make sure you have set the `NPM_TOKEN` secret in the repository before triggering it.
+
 To publish new versions, run the following:
 
 ```sh
