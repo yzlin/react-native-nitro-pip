@@ -5,18 +5,18 @@ runs:
   using: composite
   steps:
     - name: Setup Node.js
-      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      uses: actions/setup-node@v4
       with:
         node-version-file: .nvmrc
 
     - name: Setup Bun
-      uses: oven-sh/setup-bun@a0ce780b7b8457bde2b1d5c0c07a1f3b9c1b29c3
+      uses: oven-sh/setup-bun@v1
       with:
         bun-version: 1.1.38
 
     - name: Restore dependencies
       id: bun-cache
-      uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+      uses: actions/cache/restore@v4
       with:
         path: |
           **/node_modules
@@ -33,7 +33,7 @@ runs:
 
     - name: Cache dependencies
       if: steps.bun-cache.outputs.cache-hit != 'true'
-      uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+      uses: actions/cache/save@v4
       with:
         path: |
           **/node_modules
