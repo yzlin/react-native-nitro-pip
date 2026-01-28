@@ -6,10 +6,10 @@
       "**",
       "!example/**/ios/",
       "!example/**/android/",
-      "!packages/**/lib/",
-      "!packages/**/ios/",
-      "!packages/**/android/",
-      "!packages/**/nitrogen/generated/"
+      "!lib/",
+      "!ios/",
+      "!android/",
+      "!nitrogen/generated/"
     ]
   },
   "assist": {
@@ -104,10 +104,7 @@
   "extends": ["ultracite/core", "ultracite/react"],
   "overrides": [
     {
-      "includes": [
-        "**/*.nitro.ts",
-        "packages/react-native-nitro-speech-recognition/plugin/**/*.ts"
-      ],
+      "includes": ["**/*.nitro.ts", "plugin/**/*.ts"],
       "linter": {
         "rules": {
           "style": {
