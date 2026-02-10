@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-pip",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Add picture-in-picture support to React Native for Android app",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
